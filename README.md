@@ -2,6 +2,15 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
 
+##Custom Webpack
+
+This project uses @angular-builders/custom-webpack to make use of a custom postcss configuration.
+
+Dependencies for webpack: 
+- @fullhuman/postcss-purgecss
+- postcss-import
+- tailwindcss
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
