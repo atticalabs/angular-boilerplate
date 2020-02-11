@@ -18,16 +18,33 @@
   </header>
 
   <div class="p-4">
+    <mat-form-field>
+      <mat-label>Choose card</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let card of cards" [value]="card.title">
+          {{ card.title }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <div class="p-4">
     <app-alert-message
       type="error"
       message="Oops! Something went wrong here."
     ></app-alert-message>
-    <br>
+    <br />
     <app-alert-message
       type="warning"
       message="Guarda! Ojo!"
     ></app-alert-message>
-    <br>
+    <br />
     <app-alert-message
       type="success"
       message="Success! This is Peñarol, boy!"
@@ -36,15 +53,15 @@
 
   <div class="p-4 grid grid-cols-1 sm:grid-cols-3 gap-2">
     <app-card *ngFor="let card of cards">
-<!--      <img class="w-full" src="{{card.imageUrl}}" alt="Sunset in the mountains">-->
+      <!--      <img class="w-full" src="{{card.imageUrl}}" alt="Sunset in the mountains">-->
 
       <app-card-image [source]="card.imageUrl"></app-card-image>
       <app-card-content>
-        <app-card-title>{{card.title}}</app-card-title>
-        <p>{{card.text}}</p>
+        <app-card-title>{{ card.title }}</app-card-title>
+        <p>{{ card.text }}</p>
       </app-card-content>
       <app-card-footer>
-        <app-card-tag *ngFor="let tag of card.tags">{{tag}}</app-card-tag>
+        <app-card-tag *ngFor="let tag of card.tags">{{ tag }}</app-card-tag>
       </app-card-footer>
     </app-card>
   </div>
