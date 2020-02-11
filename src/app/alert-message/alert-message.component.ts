@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: "app-alert-message",
@@ -8,6 +8,11 @@ import { Component, OnInit, Input } from "@angular/core";
 export class AlertMessageComponent implements OnInit {
   @Input() type: string;
   @Input() message: string;
+  @Output() dismiss = new EventEmitter();
+
+  close(): void {
+    this.dismiss.emit();
+  }
 
   ngOnInit(): void {}
 }

@@ -35,20 +35,7 @@
   </div>
 
   <div class="p-4">
-    <app-alert-message
-      type="error"
-      message="Oops! Something went wrong here."
-    ></app-alert-message>
-    <br />
-    <app-alert-message
-      type="warning"
-      message="Guarda! Ojo!"
-    ></app-alert-message>
-    <br />
-    <app-alert-message
-      type="success"
-      message="Success! This is Peñarol, boy!"
-    ></app-alert-message>
+    <app-alert-message *ngFor="let alert of alerts; index as i" type="{{alert.type}}" message="{{alert.message}}" (dismiss)="dismissAlert(alert)"></app-alert-message>
   </div>
 
   <div class="p-4 grid grid-cols-1 sm:grid-cols-3 gap-2">
