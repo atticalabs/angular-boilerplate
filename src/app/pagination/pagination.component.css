@@ -1,0 +1,16 @@
+.pagination-item {
+  @apply border py-1 px-4 cursor-pointer text-gray-700;
+}
+.pagination-item:hover {
+  @apply bg-gray-300;
+}
+.pagination-item:active {
+  @apply bg-gray-400 border-gray-400;
+}
+.pagination-item:first-child {
+  @apply rounded-tl rounded-bl;
+}
+.pagination-item:last-child {
+  @apply rounded-tr rounded-br;
+}
+

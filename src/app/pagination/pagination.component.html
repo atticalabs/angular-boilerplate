@@ -1,0 +1,7 @@
+<nav class="rounded">
+  <ul class="flex">
+    <li class="pagination-item">previous</li>
+    <li *ngFor="let page of pages" [ngClass]="{'bg-gray-400 border-gray-400': page.selected}" class="pagination-item"><span>{{page.number}}</span></li>
+    <li class="pagination-item">next</li>
+  </ul>
+</nav>

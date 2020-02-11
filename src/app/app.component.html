@@ -53,8 +53,6 @@
 
   <div class="p-4 grid grid-cols-1 sm:grid-cols-3 gap-2">
     <app-card *ngFor="let card of cards">
-      <!--      <img class="w-full" src="{{card.imageUrl}}" alt="Sunset in the mountains">-->
-
       <app-card-image [source]="card.imageUrl"></app-card-image>
       <app-card-content>
         <app-card-title>{{ card.title }}</app-card-title>
@@ -64,5 +62,8 @@
         <app-card-tag *ngFor="let tag of card.tags">{{ tag }}</app-card-tag>
       </app-card-footer>
     </app-card>
+  </div>
+  <div class="p-4 float-right">
+    <app-pagination></app-pagination>
   </div>
 </div>
