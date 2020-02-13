@@ -8,9 +8,10 @@ This project uses @angular-builders/custom-webpack to make use of a custom postc
 
 Dependencies for webpack:
 
-- @fullhuman/postcss-purgecss
-- postcss-import
-- tailwindcss
+- [postcss-purgecss](https://github.com/FullHuman/purgecss)
+- [postcss-import](https://github.com/postcss/postcss-import)
+- [tailwindcss](https://github.com/tailwindcss/tailwindcss)
+- [autoprefixer](https://github.com/postcss/autoprefixer)
 
 ## Development server
 
