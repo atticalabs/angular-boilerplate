@@ -11,7 +11,8 @@
     "dev:ssr": "ng run angular-boilerplate:serve-ssr",
     "serve:ssr": "node dist/angular-boilerplate/server/main.js",
     "build:ssr": "ng build --prod && ng run angular-boilerplate:server:production",
-    "prerender": "ng run angular-boilerplate:prerender"
+    "prerender": "ng run angular-boilerplate:prerender",
+    "ssr": "npm run build:ssr && npm run serve:ssr"
   },
   "private": true,
   "dependencies": {
