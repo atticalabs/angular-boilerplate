@@ -20,7 +20,7 @@ import { PaginationComponent } from './pagination/pagination.component';
     PaginationComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     AppRoutingModule,
     CardModule,
