@@ -2,11 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
 
-##Custom Webpack
+## Custom Webpack
 
 This project uses @angular-builders/custom-webpack to make use of a custom postcss configuration.
 
-Dependencies for webpack: 
+Dependencies for webpack:
+
 - @fullhuman/postcss-purgecss
 - postcss-import
 - tailwindcss
@@ -14,6 +15,10 @@ Dependencies for webpack:
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Run with Server Side Rendering
+
+Use `npm run ssr` to _build and run the project_ with SSR. Server with run in http://localhost:4000
 
 ## Code scaffolding
 
