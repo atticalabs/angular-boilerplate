@@ -4,7 +4,6 @@ import { AppComponent } from "./app.component";
 import { AlertMessageComponent } from "./alert-message/alert-message.component";
 import { PaginationComponent } from "./pagination/pagination.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { AppRoutingModule } from "./app-routing.module";
 import { CardModule } from "./card/card.component";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatDatepickerModule } from "@angular/material/datepicker";
