@@ -24,6 +24,16 @@ const input = plugin(({addComponents, theme}) => {
     '.input': {
       color: theme('colors.gray["500"]'),
       fontSize: ".9rem",
+      '&.icon': {
+        'svg': {
+          position: 'absolute',
+          top: '.4rem',
+          left: '.4rem'
+        },
+        'input': {
+          paddingLeft: '2.2rem'
+        }
+      },
       '&.labeled': {
         '.label': {
           borderRadius: '5px 0 0 5px',
