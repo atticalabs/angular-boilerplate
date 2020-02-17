@@ -19,17 +19,17 @@ const skew = plugin(({addUtilities}) => {
   return addUtilities(newUtils);
 });
 
-const input = plugin(({addComponents, config}) => {
+const input = plugin(({addComponents, theme}) => {
   const input = {
     '.input': {
-      color: config('theme.colors.gray["500"]'),
+      color: theme('colors.gray["500"]'),
       fontSize: ".9rem",
       '&.labeled': {
         '.label': {
           borderRadius: '5px 0 0 5px',
           padding: '.5rem',
-          backgroundColor: config('theme.colors.gray["200"]'),
-          border: `1px solid ${config('theme.colors.gray["300"]')}`,
+          backgroundColor: theme('colors.gray["200"]'),
+          border: `1px solid ${theme('colors.gray["300"]')}`,
           borderRight: 'none'
         },
         'input': {
@@ -38,21 +38,21 @@ const input = plugin(({addComponents, config}) => {
       },
       'input': {
         padding: '.4rem .8rem',
-        border: `1px solid ${config('theme.colors.gray["300"]')}`,
+        border: `1px solid ${theme('colors.gray["300"]')}`,
         borderRadius: '5px',
         '&.error': {
-          color: config('theme.colors.red["400"]'),
-          border: `2px solid ${config('theme.colors.red["400"]')}`,
+          color: theme('colors.red["400"]'),
+          border: `2px solid ${theme('colors.red["400"]')}`,
           '&:focus': {
-            borderColor: config('theme.colors.red["400"]')
+            borderColor: theme('colors.red["400"]')
           },
           '&::placeholder': {
-            color: config('theme.colors.red["300"]')
+            color: theme('colors.red["300"]')
           }
         },
         '&:focus': {
           outline: 'none',
-          borderColor: config('theme.colors.gray["400"]')
+          borderColor: theme('colors.gray["400"]')
         }
       }
     }
