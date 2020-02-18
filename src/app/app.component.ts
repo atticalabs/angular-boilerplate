@@ -1,7 +1,16 @@
 import { CardsService } from "./cards.service";
 import { Component, OnInit } from "@angular/core";
 
-const alerts: Array<object> = [
+interface Alert {
+  type: string;
+  message: string;
+}
+
+const alerts: Array<Alert> = [
+  {
+    type: "error",
+    message: "something wrong"
+  },
   {
     type: "error",
     message: "Oops! Something went wrong here."
@@ -21,7 +30,6 @@ const alerts: Array<object> = [
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"]
 })
-
 export class AppComponent implements OnInit {
   title = "angular-boilerplate";
   alerts: Array<object>;
@@ -38,7 +46,7 @@ export class AppComponent implements OnInit {
   }
 
   dismissAlert(item) {
-    const newAlerts = this.alerts.filter(al => al !== item);
+    const newAlerts = this.alerts.filter((al: Alert) => al !== item);
 
     this.setAlerts(newAlerts);
   }
