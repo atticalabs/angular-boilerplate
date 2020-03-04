@@ -1,5 +1,6 @@
 import { CardsService } from "./cards.service";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Injector, PLATFORM_ID, Inject } from "@angular/core";
+import { isPlatformBrowser } from '@angular/common';
 
 const alerts: Array<object> = [
   {
@@ -27,7 +28,14 @@ export class AppComponent implements OnInit {
   alerts: Array<object>;
   cards = this.cardsService.cards;
 
-  constructor(private cardsService: CardsService) {}
+  constructor(
+    private cardsService: CardsService,
+    private injector: Injector,
+    @Inject(PLATFORM_ID) private platformid) {
+    if (!isPlatformBrowser(this.platformid)) {
+      console.log('API_URL', injector.get<string>(<any>'API_URL'));
+    }
+  }
 
   ngOnInit() {
     this.setAlerts(alerts);

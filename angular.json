@@ -177,6 +177,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-boilerplate"
+    }
+  },
+  "defaultProject": "angular-boilerplate",
+  "cli": {
+    "analytics": false
+  }
 }

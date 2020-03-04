@@ -15,6 +15,19 @@ export function app() {
 
   server.use(helmet());
 
+  server.use(helmet.referrerPolicy({ policy: 'same-origin' }));
+  // Control browser available features https://helmetjs.github.io/docs/feature-policy/
+  server.use(helmet.featurePolicy({
+    features: {
+      fullscreen: ["'self'"],
+      vibrate: ["'none'"],
+      syncXhr: ["'none'"]
+    }
+  }));
+
+  server.use(express.json()) // Automatically parse requests to json format
+
+  const API_URL = process.env.API_URL || 'external api url'; // Reads API_URL key value from running environment configuration
   const distFolder = join(process.cwd(), "dist/angular-boilerplate/browser");
   const indexHtml = existsSync(join(distFolder, "index.original.html"))
     ? "index.original.html"
@@ -24,7 +37,10 @@ export function app() {
   server.engine(
     "html",
     ngExpressEngine({
-      bootstrap: AppServerModule
+      bootstrap: AppServerModule,
+      providers: [
+        { provide: 'API_URL', useFactory: () => API_URL, deps: [] } //inject API_URL value read from server environment to use on Angular entry component 
+      ]
     })
   );
 
