@@ -26,7 +26,10 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
             "styles": [
               "src/styles.css",
               "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
@@ -96,7 +99,9 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "e2e": {
@@ -150,7 +155,9 @@
           "options": {
             "browserTarget": "angular-boilerplate:build:production",
             "serverTarget": "angular-boilerplate:server:production",
-            "routes": ["/"]
+            "routes": [
+              "/"
+            ]
           },
           "configurations": {
             "production": {}
@@ -159,5 +166,8 @@
       }
     }
   },
-  "defaultProject": "angular-boilerplate"
+  "defaultProject": "angular-boilerplate",
+  "cli": {
+    "analytics": false
+  }
 }
