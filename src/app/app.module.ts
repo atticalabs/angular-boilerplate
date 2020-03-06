@@ -12,6 +12,7 @@ import {MatInputModule} from '@angular/material/input';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatSelectModule} from '@angular/material/select';
 import { PaginationComponent } from './pagination/pagination.component';
+import { LazyCardModule } from './lazy-card/lazy-card.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PaginationComponent } from './pagination/pagination.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    LazyCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

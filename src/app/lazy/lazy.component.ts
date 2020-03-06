@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CardsService } from '../cards.service';
 
 @Component({
   selector: 'app-lazy',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LazyComponent implements OnInit {
 
-  constructor() { }
-
+  cards: any
+  constructor(private cardService: CardsService) { }
+  
   ngOnInit(): void {
+    this.cards = this.cardService.cards;
   }
 
 }
