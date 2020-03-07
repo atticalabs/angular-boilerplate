@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +23,7 @@ import { LazyCardModule } from './lazy-card/lazy-card.module';
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
+    BrowserTransferStateModule,
     AppRoutingModule,
     CardModule,
     MatFormFieldModule,
