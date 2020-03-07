@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { AlertMessageComponent } from './alert-message.component';
+import { AlertMessageComponent } from "./alert-message.component";
 
-describe('AlertMessageComponent', () => {
+describe("AlertMessageComponent", () => {
   let component: AlertMessageComponent;
   let fixture: ComponentFixture<AlertMessageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AlertMessageComponent ]
-    })
-    .compileComponents();
+      declarations: [AlertMessageComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +18,13 @@ describe('AlertMessageComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
+  });
+
+  it("should emit a dismiss event when closed", () => {
+    const spy = jest.spyOn(component.dismiss, "emit");
+    component.close();
+    expect(spy).toHaveBeenCalled();
   });
 });

@@ -8,9 +8,10 @@ This project uses @angular-builders/custom-webpack to make use of a custom postc
 
 Dependencies for webpack:
 
-- @fullhuman/postcss-purgecss
-- postcss-import
-- tailwindcss
+- [postcss-purgecss](https://github.com/FullHuman/purgecss)
+- [postcss-import](https://github.com/postcss/postcss-import)
+- [tailwindcss](https://github.com/tailwindcss/tailwindcss)
+- [autoprefixer](https://github.com/postcss/autoprefixer)
 
 ## Development server
 
@@ -30,11 +31,15 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Unit test are using Jest instead of the default runner Karma. Jest is faster and it doesn't require to open a browser to run the tests, which makes the process of running many unit tests a lot faster. 
+
+Run `ng test` to execute the unit tests via [Jest](https://jestjs.io/).
 
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+Run `npm run` cypress to execute end-to-end tests via [Cypress](https://cypress.io/)
 
 ## Further help
 

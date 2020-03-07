@@ -1,22 +1,30 @@
-const purgecss = require("@fullhuman/postcss-purgecss");
+const path = require('path');
 
-module.exports = {
-  module: {
-    rules: [
+const purgecss = require("@fullhuman/postcss-purgecss")({
+  css: ["./src/*.css"],
+  content: ["./src/**/*.html", './src/**/*.component.ts'],
+  defaultExtractor: content =>
+    content.match(/[\w-/:]+(?<!:)/g) || []
+})
+
+module.exports = (config) => {
+  console.log('\x1b[36m%s\x1b[0m', `===== Running ${config.mode} mode =====`);
+
+  config.module.rules.push({
+    test: /\.css$/,
+    include: [path.resolve(__dirname, 'src')],
+    use: [
       {
-        test: /\.css$/,
-        loader: "postcss-loader",
+        loader: 'postcss-loader',
         options: {
-          ident: "postcss",
-          plugins: () => [
-            require("postcss-import"),
-            require("tailwindcss"),
-            // purgecss({
-            //   content: ["./**/*.html"]
-            // })
+          plugins: [
+            require('tailwindcss'),
+            require('autoprefixer'),
+            ...(config.mode === 'production' ? [purgecss] : [])
           ]
         }
       }
     ]
-  }
+  });
+  return config;
 };

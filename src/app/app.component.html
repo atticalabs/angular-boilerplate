@@ -2,26 +2,38 @@
   <header class="px-6 py-4 flex justify-between">
     <h1 class="text-gray-600 text-3xl">Attica Labs Angular Boilerplate</h1>
 
-    <div class="max-w-xs relative text-gray-600 focus-within:text-red-500 mt-2">
-      <span class="absolute inset-y-0 flex items-center left-0 pl-3">
-        <svg class="fill-current h-6 w-6" viewBox="0 0 20 20">
+    <div class="max-w-xs relative text-gray-600 mt-2">
+      <label class="input icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="24"
+          height="24"
+        >
           <path
-            d="M18.125,15.804l-4.038-4.037c0.675-1.079,1.012-2.308,1.01-3.534C15.089,4.62,12.199,1.75,8.584,1.75C4.815,1.75,1.982,4.726,2,8.286c0.021,3.577,2.908,6.549,6.578,6.549c1.241,0,2.417-0.347,3.44-0.985l4.032,4.026c0.167,0.166,0.43,0.166,0.596,0l1.479-1.478C18.292,16.234,18.292,15.968,18.125,15.804 M8.578,13.99c-3.198,0-5.716-2.593-5.733-5.71c-0.017-3.084,2.438-5.686,5.74-5.686c3.197,0,5.625,2.493,5.64,5.624C14.242,11.548,11.621,13.99,8.578,13.99 M16.349,16.981l-3.637-3.635c0.131-0.11,0.721-0.695,0.876-0.884l3.642,3.639L16.349,16.981z"
-          ></path>
+            class="fill-current text-gray-400"
+            stroke-width="0"
+            d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"
+          />
         </svg>
-      </span>
-      <input
-        type="text"
-        class="block w-full rounded-lg pl-12 pr-5 py-1 text-lg border-2 border-gray-400 bg-white focus:shadow-outline focus:border-0 outline-none shadow-2xl"
-      />
+        <input type="text" />
+      </label>
     </div>
   </header>
 
-  <div class="px-4 py-2 flex justify-between">
-    <div class="bg-manzana p-4 skew-5deg">manzana</div>
-    <div class="bg-pera p-4 skew-5deg-reverse">pera</div>
-    <div class="bg-dark-blue p-4 skew-5deg">dark-blue</div>
-    <div class="bg-error p-4 skew-5deg-reverse">error</div>
+  <div class="px-4 py-2 flex flex-wrap">
+    <div class="bg-red-200 p-4">light red</div>
+    <div class="bg-gray-300 p-4">gray</div>
+    <div class="bg-dark-blue text-white p-4">dark-blue</div>
+    <div class="bg-error text-white p-4 ">error</div>
+    <div class="bg-yellow-200 p-4">yellow</div>
+    <div class="bg-green-200 p-4">light green</div>
+    <div class="bg-green-800 text-white p-4">dark green</div>
+    <div class="bg-pink-600 text-white p-4">pink</div>
+    <div class="bg-purple-400 p-4">purple</div>
+    <div class="bg-orange-500 p-4">orange</div>
+    <div class="bg-indigo-500 p-4">indigo</div>
+    <div class="bg-black text-white p-4">black</div>
   </div>
 
   <div class="p-4">
@@ -39,10 +51,28 @@
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
+
+    <div class="p-2">
+      <label class="input mr-2">
+        <input type="text" placeholder="Search..." />
+      </label>
+      <label class="input mr-2">
+        <input type="text" class="error" placeholder="wrong input..." />
+      </label>
+      <label class="input labeled">
+        <span class="label">http://</span>
+        <input type="text" />
+      </label>
+    </div>
   </div>
 
   <div class="p-4">
-    <app-alert-message *ngFor="let alert of alerts; index as i" type="{{alert.type}}" message="{{alert.message}}" (dismiss)="dismissAlert(alert)"></app-alert-message>
+    <app-alert-message
+      *ngFor="let alert of alerts; index as i"
+      type="{{ alert.type }}"
+      message="{{ alert.message }}"
+      (dismiss)="dismissAlert(alert)"
+    ></app-alert-message>
   </div>
 
   <div class="p-4 grid grid-cols-1 sm:grid-cols-3 gap-2">
