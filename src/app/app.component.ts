@@ -1,5 +1,9 @@
 import { CardsService } from "./cards.service";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Injector, PLATFORM_ID, Inject } from "@angular/core";
+import { isPlatformBrowser } from '@angular/common';
+import { environment } from '../environments/environment.prod';
+import { EnvironmentService } from './environment.service';
+import * as settings from '../environments/settings';
 
 interface Alert {
   type: string;
@@ -35,10 +39,21 @@ export class AppComponent implements OnInit {
   alerts: Array<object>;
   cards = this.cardsService.cards;
 
-  constructor(private cardsService: CardsService) {}
+  constructor(
+    private cardsService: CardsService,
+    private injector: Injector,
+    private env: EnvironmentService) {
+    if (this.env.isServer) {
+      const apiUrl = injector.get<string>(<any>'API_URL'); // Get value passed from Node Express Server
+      this.env.setValueTransferState(settings.API_URL, apiUrl);
+    }
+  }
 
   ngOnInit() {
     this.setAlerts(alerts);
+    if(this.env.isBrowser){
+      console.log('API_URL', this.env.getValueTransferState(settings.API_URL)); //Read setting value from client side
+    }
   }
 
   setAlerts(a) {
